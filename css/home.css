@@ -959,3 +959,256 @@ svg {
     background: rgba(255, 255, 255, 0.24);
     border-radius: 999px;
 }
+
+
+/* css artist page */
+
+
+*,p,h1{
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+
+main{
+    
+}
+
+.mainRow{
+    height: 1000px;
+}
+
+.navbarSection{
+    background-color: rgb(53, 53, 53)
+}
+
+.mainContent{
+    background-color: rgba(53, 53, 53, 0.537);
+}
+
+.mainContent .artistHeroCont{
+    height: 300px;
+    width: 100%;
+    background-color: rgb(113, 113, 113);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.mainContent .artistHeroCont .navAccount{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.mainContent .artistHeroCont .navAccount .pageNav{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mainContent .artistHeroCont .navAccount .pageNav .arrowCont{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    color: white;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.mainContent .artistHeroCont .navAccount .account{
+      background-color: black;
+      color: white;
+      border-radius: 40px;
+      
+}
+
+.mainContent .artistHeroCont .navAccount .account .navbar-nav{
+      background-color: black;
+      color: white;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+}
+
+.mainContent .artistHeroCont .navAccount .account .navbar-nav .accountImgCont{
+    height: 40px;
+    width: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+    
+}
+
+.mainContent .artistHeroCont .navAccount .account .navbar-nav .accountImgCont img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mainContent .artistHeroCont .navAccount .account .accountLInk{
+      color: white;
+      border-radius: 40px;
+}
+
+
+.mainContent .artistHeroCont .artistNameCont{
+    padding: 1rem;
+    color: white;
+    
+}
+
+.mainContent .artistHeroCont .artistNameCont h1{
+    
+}
+
+.mainContent .artistHeroCont .artistNameCont p:last-of-type{
+    margin-top: 1rem;
+    
+}
+
+.mainContent .artistSection{
+    width: 100%;
+    border-top: 1px solid gray ;
+}
+
+.mainContent .artistSection .playFollow{
+    
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.mainContent .artistSection .playFollow .playFollowButtons{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.mainContent .artistSection .playFollow .playFollowButtons .playButton{
+    height: 40px;
+    width: 40px;
+    background-color: greenyellow;
+    border-radius: 50%;
+    border: none;
+    
+}
+
+.mainContent .artistSection .playFollow .playFollowButtons .playButton i{
+    
+}
+
+.mainContent .artistSection .playFollow .playFollowButtons .followButton{
+    color: white;
+    background-color: transparent;
+    border-radius: 0.2rem;
+    border: 1px solid white;
+    height: 30px;
+    
+}
+
+.mainContent .artistSection .playFollow .playFollowButtons .playFollowMenuButton{
+    height: 30px;
+    color: white;
+    background-color: transparent;
+    border: none;
+    
+}
+
+.mainContent .artistSection .tracks{
+    height: 500px;
+    width: 100%;
+    
+}
+
+.mainContent .artistSection .tracks .popItemCont{
+    width: 100%;
+    display: flex;
+    padding: .4rem;
+}
+
+.mainContent .artistSection .tracks .popItemCont .popItemImgCont{
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+}
+
+.mainContent .artistSection .tracks .popItemCont .popItemImgCont img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mainContent .artistSection .tracks .popItemCont .popItemTrackCont{
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+
+.mainContent .artistSection .tracks .popItemCont .onlySPItemMenu{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.mainContent .artistSection .favTracksCont{
+    
+}
+
+.mainContent .artistSection .favTracksCont .favTracksItem{
+    display: flex;
+    align-items: center;
+    gap: 1rem;   
+}
+
+.mainContent .artistSection .favTracksCont .favTracksItem .favTracksImgCont{
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+    border-radius: 50%;   
+}
+
+.mainContent .artistSection .favTracksCont .favTracksItem .favTracksImgCont img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;   
+}
+
+
+.mainContent .artistSection .favTracksCont .favTracksItem .favTracksInfoCont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+}
+
+.mainContent .artistSection .favTracksCont .favTracksItem .favTracksInfoCont .favTracksInfoNum{
+    font-weight: 500;
+       
+}
+
+.mainContent .artistSection .favTracksCont .favTracksItem .favTracksInfoCont .favTracksInfoArtist{
+       
+}
+
+.mainContent .artistSection footer{
+    height: 500px;
+    width: 100%;
+    border-top: 1px solid gray ;
+}
+
+.activitiesBar{
+    background-color: rgb(53, 53, 53)
+}
+
+/* media queries */
+
+
+/* ---------------- */
