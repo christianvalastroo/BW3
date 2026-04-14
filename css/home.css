@@ -450,6 +450,18 @@ svg {
         gap: 8px;
     }
 
+    .nav-logo {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 0 10px;
+    }
+
+    .nav-logo img {
+        display: block;
+        width: 132px;
+        height: auto;
+    }
+
     .nav-link,
     .action-link {
         display: flex;
@@ -461,7 +473,6 @@ svg {
         font-weight: 700;
     }
 
-    .nav-link--active,
     .nav-link:hover,
     .action-link:hover,
     .playlist-link:hover {
