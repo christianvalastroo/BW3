@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify Artist Clone</title>
+    <title>Spotify Home Clone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/home.css">
 </head>
 
@@ -19,9 +22,8 @@
             </div>
 
             <nav class="sidebar-nav">
-                <a href="#" class="nav-link nav-link--active">
-                    <i data-lucide="house"></i>
-                    <span>Home</span>
+                <a href="home.html" class="nav-logo" aria-label="Spotify">
+                    <img src="assets/Spotify-logo.png" alt="Spotify">
                 </a>
 
                 <a href="#" class="nav-link">
@@ -103,9 +105,8 @@
         </aside>
 
         <!-- Contenuto condiviso desktop e mobile -->
-        <main class="container-fluid">
-
-                        <header class="page-header">
+        <main class="main-content">
+            <header class="page-header">
                 <div class="page-header__start">
                     <div class="topbar-arrows" aria-label="Navigazione cronologia">
                         <button type="button" class="icon-button" aria-label="Indietro">
@@ -140,108 +141,74 @@
                 </div>
             </header>
 
-            <div class="row mainRow">
-                <section class="navbarSection col-3"></section>
-                <section class="mainContent col-7 g-0">
-                    <div class="artistHeroCont">
-                        <div class="navAccount">
-                            <div class="pageNav">
-                                <div class="arrowCont">
-                                    << /div>
-                                        <div class="arrowCont">></div>
-                                </div>
-                                <div class="account">
+            <div class="content-filters">
+                <button type="button" class="filter-pill filter-pill--active">Musica</button>
+                <button type="button" class="filter-pill">Podcast e show</button>
+            </div>
 
-                                    <nav class="navbar navbar-expand-lg p-1">
-                                        <div class="container-fluid g-0">
+            <section class="hero-banner" id="heroBanner" aria-label="Album in evidenza">
+      
+                    <div class="artistNameCont">
+                        <p><i class="bi bi-patch-check-fill"></i> Artista Verificato</p>
+                        <h1>Yellow Card</h1>
+                        <p>300.000 ascoltatori mensili</p>
+                    </div>
+    
+            </section>
+            
 
-                                            <ul class="navbar-nav">
-                                                <li class="nav-item">
-                                                    <a class="nav-link active p-0" aria-current="page" href="#">
-                                                        <div class="accountImgCont">
-                                                            <img src="./assets/img5.jpg" alt="">
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item dropdown">
-                                                    <a class="accountLInk nav-link dropdown-toggle p-0" href="#"
-                                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        Dropdown link
-                                                    </a>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                                        <li><a class="dropdown-item" href="#">Something else here</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
+            <div class="artistSection container-fluid">
 
-                                        </div>
-                                    </nav>
-
-                                </div>
-                            </div>
-                            <div class="artistNameCont">
-                                <p>Artista Verificato</p>
-                                <h1>Yellow Card</h1>
-                                <p>300.000 ascoltatori mensili</p>
-                            </div>
+                    <div class="playFollow">
+                        <div class="playFollowButtons">
+                            <button class="playButton">
+                                <i class="bi bi-play-fill"></i>
+                            </button>
+                            <button class="followButton">Following</button>
+                            <button class="playFollowMenuButton">
+                                <i class="bi bi-three-dots"></i>
+                            </button>
                         </div>
-                        <div class="artistSection container-fluid">
+                    </div>
 
-                            <div class="playFollow">
-                                <div class="playFollowButtons">
-                                    <button class="playButton">
-                                        <i class="bi bi-play-fill"></i>
-                                    </button>
-                                    <button class="followButton">Following</button>
-                                    <button class="playFollowMenuButton">
-                                        <i class="bi bi-three-dots"></i>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="tracks row">
-                                <div class="popularTracksCont col-12 col-md-6">
-                                    <h3>Popolari</h3>
-                                    <ol>
-                                        <li>
-                                            <div class="popItemCont">
-                                                <div class="popItemImgCont">
-                                                    <img src="./assets/immagine_2022-10-17_003245410.png" alt="">
-                                                </div>
-                                                <div class="popItemTrackCont">
-                                                    <p class="trackTitle">Ocean Avenue</p>
-                                                    <p class="numOfViews">200.000.000</p>
-                                                    <p class="trackDuration">3:16</p>
-                                                </div>
-                                                <div class="onlySPItemMenu d-none">
-                                                    <i class="bi bi-three-dots-vertical"></i>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </div>
-                                <div class="favTracksCont col-12 col-md-6">
-                                    <h3>Brani che ti piacciono</h3>
-                                    <div class="favTracksItem">
-                                        <div class="favTracksImgCont">
-                                            <img src="./assets/immagine_2022-10-17_003505762.png" alt="">
+                    <div class="tracks row">
+                        <div class="popularTracksCont col-12 col-xl-6">
+                            <h3>Popolari</h3>
+                            <ol>
+                                <li>
+                                    <div class="popItemCont">
+                                        <div class="popItemImgCont">
+                                            <img src="./assets/assets/img5.jpg" alt="">
                                         </div>
-                                        <div class="favTracksInfoCont">
-                                            <p class="favTracksInfoNum">Hai messo mi piace a 11 brani</p>
-                                            <p class="favTracksInfoArtist"> di Yellowcard</p>
+                                        <div class="popItemTrackCont">
+                                            <p class="trackTitle">Ocean Avenue</p>
+                                            <p class="numOfViews">200.000.000</p>
+                                            <p class="trackDuration">3:16</p>
+                                        </div>
+                                        <div class="onlySPItemMenu d-none">
+                                            <i class="bi bi-three-dots-vertical"></i>
                                         </div>
                                     </div>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="favTracksCont col-12 col-xl-6">
+                            <h3>Brani che ti piacciono</h3>
+                            <div class="favTracksItem">
+                                <div class="favTracksImgCont">
+                                    <img src="./assets/assets/img5.jpg" alt="">
+                                </div>
+                                <div class="favTracksInfoCont">
+                                    <p class="favTracksInfoNum">Hai messo mi piace a 11 brani</p>
+                                    <p class="favTracksInfoArtist"> di Yellowcard</p>
                                 </div>
                             </div>
-
-                            <footer></footer>
                         </div>
-                </section>
-                <section class="activitiesBar col-2"></section>
-            </div>
+                    </div>
+                </div>
+
+
+
         </main>
 
         <!-- Attività amici desktop -->
@@ -297,7 +264,7 @@
                 <span id="desktopNowPlayingArtist">Attendi un momento</span>
             </div>
             <div class="player-track__actions">
-                <i data-lucide="heart"></i>
+                <i data-lucide="heart" style="cursor: pointer;"></i>
             </div>
         </div>
 
@@ -330,16 +297,16 @@
         </div>
 
         <div class="player-tools">
-            <i data-lucide="mic-vocal"></i>
-            <i data-lucide="list-music"></i>
-            <i data-lucide="monitor-speaker"></i>
+            <i data-lucide="mic-vocal" style="cursor: pointer;"></i>
+            <i data-lucide="list-music" style="cursor: pointer;"></i>
+            <i data-lucide="monitor-speaker" style="cursor: pointer;"></i>
             <div class="volume-group">
                 <i data-lucide="volume-2"></i>
                 <div class="progress-bar progress-bar--volume" aria-hidden="true">
                     <span class="progress-bar__fill"></span>
                 </div>
             </div>
-            <i data-lucide="maximize-2"></i>
+            <i data-lucide="maximize-2" style="cursor: pointer;"></i>
         </div>
     </div>
 
@@ -409,6 +376,10 @@
             window.lucide.createIcons()
         }
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+
 </body>
 
 </html>
