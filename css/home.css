@@ -974,6 +974,14 @@ svg {
 
 /* css artist page */
 
+#heroBannerArtist{
+    background-size: cover;
+}
+
+.artistNameCont{
+    width: 100%;
+}
+
 .artistSection{
     width: 100%;
 }
@@ -990,6 +998,7 @@ svg {
     padding-bottom: 1rem;
     display: flex;
     gap: 1rem;
+    align-items: center;
 }
 
 .artistSection .playFollow .playFollowButtons .playButton{
@@ -1024,7 +1033,7 @@ svg {
 
 .artistSection .tracks{
     width: 100%;
-    
+    justify-content: space-between;    
 }
 
 .artistSection .tracks .popItemCont{
@@ -1032,6 +1041,7 @@ svg {
     display: flex;
     padding: .4rem;
     min-width: 287px;
+    gap: 10px;
 }
 
 .artistSection .tracks .popItemCont .popItemImgCont{
@@ -1049,8 +1059,13 @@ svg {
 .artistSection .tracks .popItemCont .popItemTrackCont{
     flex-grow: 1;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
+    
+}
+
+.artistSection .tracks .popItemCont .popItemTrackCont .trackTitleCont{
+    width: 150px;
     
 }
 
