@@ -17,10 +17,12 @@ const fanNumP=document.querySelector(".fanNum")
 
 const trackList=document.querySelector(".trackList")
 
+const favTracksImg=document.querySelector(".favTracksImgCont img")
+
 //------------//
 
 
-//get di controllo artist//
+//get data artist//
 
 const getDataArtist=async()=>{
 
@@ -35,16 +37,10 @@ const getDataArtist=async()=>{
 
 }
 
-getDataArtist()
-    .then(res=>{
-        console.log(res)
-        populateHero(res.name,res.nb_fan,res.picture_big)
-    })
-
 //----------------//
 
 
-//get di controllo tracks//
+//get data tracks//
 
 const getDataTracks=async()=>{
 
@@ -59,14 +55,8 @@ const getDataTracks=async()=>{
 
 }
 
-getDataTracks()
-    .then(res=>{
-        console.log(res)
-        //md5_image
-        populatePopTracks(res.data)
-    })
-
 //---------------//
+
 
 //populate functions//
 
@@ -102,4 +92,31 @@ const populatePopTracks=(tracksArray)=>{
     });
 }
 
+const populateFavTracks=(imgUrl)=>{
+    favTracksImg.src=imgUrl
+}
+
 //-----------------//
+
+
+//window onload//
+
+window.onload=()=>{
+
+    getDataArtist()
+    .then(res=>{
+        console.log(res)
+        populateHero(res.name,res.nb_fan,res.picture_big)
+        populateFavTracks(res.picture_small)
+    })
+
+    getDataTracks()
+    .then(res=>{
+        console.log(res)
+        //md5_image
+        populatePopTracks(res.data)
+    })
+
+}
+
+//--------------//
