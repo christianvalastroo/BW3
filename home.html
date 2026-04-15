@@ -101,8 +101,9 @@
             </section>
         </aside>
 
-        <!-- Contenuto condiviso desktop e mobile -->
+        <!-- Contenuto principale della home -->
         <main class="main-content">
+            <!-- Header condiviso: il CSS decide cosa mostrare -->
             <header class="page-header">
                 <div class="page-header__start">
                     <div class="topbar-arrows" aria-label="Navigazione cronologia">
@@ -143,6 +144,7 @@
                 <button type="button" class="filter-pill">Podcast e show</button>
             </div>
 
+            <!-- Hero riempito dal JS -->
             <section class="hero-banner" id="heroBanner" aria-label="Album in evidenza">
                 <div class="art art--square hero-cover art--song" id="heroCover"></div>
 
@@ -164,6 +166,7 @@
 
             <section class="content-section">
                 <h2 class="section-title--desktop">Buonasera</h2>
+                <!-- Qui il JS inserisce le card miste -->
                 <div class="greeting-grid" id="greetingGrid"></div>
             </section>
 
@@ -310,7 +313,7 @@
         </a>
     </nav>
 
-    <!-- Template card Buonasera -->
+    <!-- Base della card usata dal JS -->
     <template id="greetingCardTemplate">
         <article class="greeting-card">
             <div class="greeting-card__cover"></div>

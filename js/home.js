@@ -1,5 +1,6 @@
 const url = "https://striveschool-api.herokuapp.com/api/deezer/search?q="
 
+// Elementi della home che riempio con la API
 const heroCover = document.getElementById("heroCover")
 const heroTitle = document.getElementById("heroTitle")
 const heroArtist = document.getElementById("heroArtist")
@@ -14,6 +15,7 @@ const mobileMiniPlayerArtist = document.getElementById("mobileMiniPlayerArtist")
 const greetingCardTemplate = document.getElementById("greetingCardTemplate")
 const recommendedCardTemplate = document.getElementById("recommendedCardTemplate")
 
+// Album in evidenza dell'hero
 const getAlbum = async () => {
     heroTitle.textContent = "Caricamento album..."
     heroArtist.textContent = "Attendi un momento"
@@ -23,7 +25,7 @@ const getAlbum = async () => {
         const data = await response.json()
         console.log(data)
 
-        const firstTrack = data.data[20]
+        const firstTrack = data.data[18]
 
         const img = document.createElement("img")
         img.src = firstTrack.album.cover_big
@@ -42,4 +44,50 @@ const getAlbum = async () => {
         heroArtist.textContent = "Album non disponibile"
     }
 }
+
+const queries = ["fedez", "salmo", "blanco", "mahmood", "maneskin", "madame"]
+
+// Card miste della sezione Buonasera
+const getCards = async () => {
+    greetingGrid.innerHTML = ""
+
+    try {
+        queries.forEach(async (query) => {
+
+            const response = await fetch(url + query)
+            const data = await response.json()
+
+            const firstTrack = data.data[0]
+
+            const card = greetingCardTemplate.content.cloneNode(true)
+
+            const cover = card.querySelector(".greeting-card__cover")
+            const title = card.querySelector(".greeting-card__title")
+
+            // Wrapper usato anche dal CSS per le cover
+            const art = document.createElement("div")
+            art.classList.add("art")
+
+            // Immagine album della card
+            const img = document.createElement("img")
+            img.src = firstTrack.album.cover_medium
+            img.alt = firstTrack.album.title
+            img.classList.add("art__img")
+
+            // Struttura finale della card
+            art.appendChild(img)
+            cover.appendChild(art)
+
+            title.textContent = firstTrack.album.title
+
+            greetingGrid.appendChild(card)
+
+
+        })
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+getCards()
 getAlbum()
