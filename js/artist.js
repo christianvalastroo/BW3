@@ -21,12 +21,19 @@ const trackList=document.querySelector(".trackList")
 
 const favTracksImg=document.querySelector(".favTracksImgCont img")
 
+const artistHeroSpinner=document.getElementById("artistHeroSpinner")
+const artistFavTracksSpinner=document.getElementById("artistFavTracksSpinner")
+const artistpopularTracksSpinner=document.getElementById("artistpopularTracksSpinner")
+
 //------------//
 
 
 //get data artist//
 
 const getDataArtist=async()=>{
+
+    artistHeroSpinner.classList.remove("d-none")
+    artistFavTracksSpinner.classList.remove("d-none")
 
     try{
         const rawData=await fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}`)
@@ -35,6 +42,9 @@ const getDataArtist=async()=>{
 
     }catch(error){
         console.log(error)
+    }finally{
+        artistHeroSpinner.classList.add("d-none")
+        artistFavTracksSpinner.classList.add("d-none")
     }
 
 }
@@ -46,6 +56,8 @@ const getDataArtist=async()=>{
 
 const getDataTracks=async()=>{
 
+    artistpopularTracksSpinner.classList.remove("d-none")
+
     try{
         const rawData=await fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=50`)
         const data= await rawData.json()
@@ -53,6 +65,8 @@ const getDataTracks=async()=>{
 
     }catch(error){
         console.log(error)
+    }finally{
+        artistpopularTracksSpinner.classList.add("d-none")
     }
 
 }

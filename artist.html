@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify Home Clone</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/home.css">
@@ -147,37 +148,43 @@
             </div>
 
             <section class="hero-banner" id="heroBannerArtist" aria-label="Album in evidenza">
-      
-                    <div class="artistNameCont">
-                        <p><i class="bi bi-patch-check-fill"></i> Artista Verificato</p>
-                        <h1 class="heroTitle"></h1>
-                        <p class="fanNum"></p>
+
+                <div class="artistNameCont">
+                    <p><i class="bi bi-patch-check-fill"></i> Artista Verificato</p>
+                    <h1 class="heroTitle"></h1>
+                    <p class="fanNum"></p>
+                </div>
+
+                <div id="artistHeroSpinner" class="d-flex justify-content-center py-4 d-none">
+                    <div class="spinner-border text-success" role="status">
+                        <span class="visually-hidden">Loading...</span>
                     </div>
-    
+                </div>
+
             </section>
-            
+
 
             <div class="artistSection container-fluid">
 
-                    <p class="fanNumMobile"></p>
+                <p class="fanNumMobile"></p>
 
-                    <div class="playFollow">
-                        <div class="playFollowButtons">
-                            <button class="playButton">
-                                <i class="bi bi-play-fill"></i>
-                            </button>
-                            <button class="followButton">Following</button>
-                            <button class="playFollowMenuButton">
-                                <i class="bi bi-three-dots"></i>
-                            </button>
-                        </div>
+                <div class="playFollow">
+                    <div class="playFollowButtons">
+                        <button class="playButton">
+                            <i class="bi bi-play-fill"></i>
+                        </button>
+                        <button class="followButton">Following</button>
+                        <button class="playFollowMenuButton">
+                            <i class="bi bi-three-dots"></i>
+                        </button>
                     </div>
+                </div>
 
-                    <div class="tracks row">
-                        <div class="popularTracksCont col-12 col-xxl-5">
-                            <h3>Popolari</h3>
-                            <ol class="trackList">
-                                <!-- <li>
+                <div class="tracks row">
+                    <div class="popularTracksCont col-12 col-xxl-5">
+                        <h3>Popolari</h3>
+                        <ol class="trackList">
+                            <!-- <li>
                                     <div class="popItemCont">
                                         <div class="popItemImgCont">
                                             <img src="./assets/assets/img5.jpg" alt="">
@@ -194,22 +201,29 @@
                                         </div>
                                     </div>
                                 </li> -->
-                            </ol>
-                        </div>
-                        <div class="favTracksCont col-12 col-xxl-5">
-                            <h3>Brani che ti piacciono</h3>
-                            <div class="favTracksItem">
-                                <div class="favTracksImgCont">
-                                    <img src="./assets/assets/img5.jpg" alt="">
+                        </ol>
+                    </div>
+                    <div class="favTracksCont col-12 col-xxl-5">
+                        <h3>Brani che ti piacciono</h3>
+                        <div class="favTracksItem">
+                            <div class="favTracksImgCont">
+
+                                <div id="artistFavTracksSpinner" class="d-flex justify-content-center py-4 d-none">
+                                    <div class="spinner-border text-success" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
                                 </div>
-                                <div class="favTracksInfoCont">
-                                    <p class="favTracksInfoNum">Hai messo mi piace a 11 brani</p>
-                                    <p class="favTracksInfoArtist"> di Yellowcard</p>
-                                </div>
+
+                                <img src="#" alt="">
+                            </div>
+                            <div class="favTracksInfoCont">
+                                <p class="favTracksInfoNum">Hai messo mi piace a 11 brani</p>
+                                <p class="favTracksInfoArtist"> di Yellowcard</p>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
 
 
@@ -380,7 +394,9 @@
         }
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
     <script src="js/artist.js"></script>
 
 </body>
