@@ -1027,7 +1027,8 @@ svg {
     border-radius: 0.2rem;
     border: 1px solid white;
     height: 30px;
-    
+    padding-right: .7rem;
+    padding-left: .7rem;
 }
 
 .artistSection .playFollow .playFollowButtons .playFollowMenuButton {
@@ -1045,9 +1046,13 @@ svg {
     min-height: 0;
 }
 
-.artistSection .tracks {
+.artistSection .tracks{
     width: 100%;
-    justify-content: space-between;    
+    justify-content: space-between;
+    overflow: auto;
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0   
 }
 
 .artistSection .tracks .popItemCont {
