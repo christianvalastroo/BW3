@@ -108,19 +108,19 @@
         <main class="main-content artistMain">
             <header class="page-header">
                 <div class="page-header__start">
-                    <div class="topbar-arrows" aria-label="Navigazione cronologia">
-                        <button type="button" class="icon-button" aria-label="Indietro">
+                    <div class="topbar-arrows topArrows" aria-label="Navigazione cronologia">
+                        <button type="button" class="icon-button leftButton" aria-label="Indietro">
                             <i data-lucide="chevron-left"></i>
                         </button>
-                        <button type="button" class="icon-button icon-button--muted" aria-label="Avanti">
+                        <button type="button" class="icon-button icon-button--muted rightButton" aria-label="Avanti">
                             <i data-lucide="chevron-right"></i>
                         </button>
                     </div>
 
-                    <h1 class="page-title">Buonasera</h1>
+                    <h1 class="page-title pageTitle">Buonasera</h1>
                 </div>
 
-                <div class="page-header__end">
+                <div class="page-header__end pHeaderEnd">
                     <div class="page-header__mobile-actions">
                         <button type="button" class="mobile-icon-button" aria-label="Notifiche">
                             <i data-lucide="bell"></i>
@@ -141,7 +141,7 @@
                 </div>
             </header>
 
-            <div class="content-filters">
+            <div class="content-filters contentFiltersArtist">
                 <button type="button" class="filter-pill filter-pill--active">Musica</button>
                 <button type="button" class="filter-pill">Podcast e show</button>
             </div>
@@ -158,6 +158,8 @@
             
 
             <div class="artistSection container-fluid">
+
+                    <p class="fanNumMobile"></p>
 
                     <div class="playFollow">
                         <div class="playFollowButtons">

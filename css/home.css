@@ -1046,6 +1046,10 @@ svg {
     min-height: 0;
 }
 
+.artistSection .fanNumMobile{
+    display: none;
+}
+
 .artistSection .tracks{
     width: 100%;
     justify-content: space-between;
@@ -1154,5 +1158,66 @@ svg {
 
 /* media queries */
 
+@media (width<992px){
+
+    .pageTitle{
+        display: none;
+    }
+
+    .pHeaderEnd{
+        display: none;
+    }
+
+    .topArrows{
+        display: block;
+    }
+
+    .leftButton{
+        background-color: black;
+        height: 30px;
+        width: 30px;
+        padding: 3px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .rightButton{
+        display: none;
+    }
+
+    .contentFiltersArtist{
+        display: none;
+    }
+
+    #heroBannerArtist{
+        display: block;
+        height: 60%;
+        display: flex;
+        align-items: end;
+        padding: 12px;
+    }
+
+    .artistNameCont p{
+        display: none;
+    }
+
+    .artistNameCont h1{
+        margin-bottom: 0;
+    }
+
+    .artistSection .fanNumMobile{
+        display: block;
+        margin-bottom: 0;
+        margin-top: 3px;
+
+    }
+
+    .popularTracksCont{
+        order: 1;
+    }
+
+}
 
 /* --------------- */

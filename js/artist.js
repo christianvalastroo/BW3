@@ -14,6 +14,7 @@ const hero=document.getElementById("heroBannerArtist")
 
 const heroTitle=document.querySelector(".heroTitle")
 const fanNumP=document.querySelector(".fanNum")
+const fanNumMobileP=document.querySelector(".fanNumMobile")
 
 const trackList=document.querySelector(".trackList")
 
@@ -64,6 +65,7 @@ const populateHero=(name,fans,image)=>{
     hero.style.backgroundImage=`url(${image})`
     heroTitle.innerHTML=name
     fanNumP.innerHTML=fans+" fans"
+    fanNumMobileP.innerHTML=fans+" fans"
 }
 
 const populatePopTracks=(tracksArray)=>{
