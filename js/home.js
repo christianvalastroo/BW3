@@ -22,7 +22,7 @@ const getAlbum = async () => {
     heroArtist.textContent = "Attendi un momento"
 
     try {
-        const response = await fetch(url + "fedez")
+        const response = await fetch(url + "Fedez")
         const data = await response.json()
         console.log(data)
         console.log(data.data[0].artist.id)

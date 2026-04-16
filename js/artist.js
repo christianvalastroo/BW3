@@ -72,8 +72,16 @@ const populateHero=(name,fans,image)=>{
 const populatePopTracks=(tracksArray)=>{
 
     tracksArray.forEach(track=> {
+        
+        //renderizzazione della Track.duration//
 
-        //track.duration
+        let trackDuration=track.duration
+        let trackDurationString= String(trackDuration)
+        let trackDurationArray= trackDurationString.split("")
+        trackDurationArray.splice(1,0,":")
+        let renderedTrackDuration=trackDurationArray.join("")
+        
+        //-------------------------------------//
 
         trackList.innerHTML+=`<li>
                                     <div class="popItemCont">
@@ -85,7 +93,7 @@ const populatePopTracks=(tracksArray)=>{
                                                 <p class="trackTitle">${track.title_short}</p>
                                             </div>
                                             <p class="numOfViews">${track.rank}</p>
-                                            <p class="trackDuration">${track.duration}</p>
+                                            <p class="trackDuration">${renderedTrackDuration}</p>
                                         </div>
                                         <div class="onlySPItemMenu d-none">
                                             <i class="bi bi-three-dots-vertical"></i>
