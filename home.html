@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify Home Clone</title>
+
+    <!-- Bootsrap CSS 5.3.8 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- CSS-->
     <link rel="stylesheet" href="css/home.css">
 </head>
 
@@ -170,6 +176,12 @@
 
             <section class="content-section">
                 <h2 class="section-title--desktop">Buonasera</h2>
+
+                <div id="greetingSpinner" class="d-flex justify-content-center py-4 d-none">
+                    <div class="spinner-border text-success" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
                 <!-- Qui il JS inserisce le card miste -->
                 <div class="greeting-grid" id="greetingGrid"></div>
             </section>
@@ -178,6 +190,12 @@
                 <div class="section-heading">
                     <h2>Altro di ciò che ti piace</h2>
                     <button type="button" class="text-button">VISUALIZZA TUTTO</button>
+                </div>
+
+                <div id="recommendedSpinner" class="d-flex justify-content-center py-4 d-none">
+                    <div class="spinner-border text-success" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
                 </div>
                 <div class="recommended-grid" id="recommendedGrid"></div>
             </section>

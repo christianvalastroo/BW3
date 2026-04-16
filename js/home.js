@@ -16,6 +16,11 @@ const mobileMiniPlayerArtist = document.getElementById("mobileMiniPlayerArtist")
 const greetingCardTemplate = document.getElementById("greetingCardTemplate")
 const recommendedCardTemplate = document.getElementById("recommendedCardTemplate")
 
+const greetingSpinner = document.querySelector("#greetingSpinner")
+const recommendedSpinner = document.querySelector("#recommendedSpinner")
+
+
+
 // Album in evidenza dell'hero
 const getAlbum = async () => {
     heroTitle.textContent = "Caricamento album..."
@@ -27,7 +32,7 @@ const getAlbum = async () => {
         console.log(data)
         console.log(data.data[0].artist.id)
 
-        const firstTrack = data.data[18]
+        const firstTrack = data.data[0]
 
         const img = document.createElement("img")
         img.src = firstTrack.album.cover_big
@@ -54,6 +59,8 @@ const queries = ["fedez", "salmo", "blanco", "mahmood", "maneskin", "madame"]
 // Card miste della sezione Buonasera
 const getCards = async () => {
     greetingGrid.innerHTML = ""
+
+    greetingSpinner.classList.remove("d-none")
 
     try {
         queries.forEach(async (query) => {
@@ -91,6 +98,9 @@ const getCards = async () => {
 
     } catch (error) {
         console.log(error)
+
+    }finally {
+        greetingSpinner.classList.add("d-none")
     }
 }
 getCards()
