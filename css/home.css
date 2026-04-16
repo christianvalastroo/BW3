@@ -987,6 +987,7 @@ svg {
 
 #heroBannerArtist{
     background-size: cover;
+    height: 40%;
 }
 
 .artistNameCont{

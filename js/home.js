@@ -4,6 +4,7 @@ const url = "https://striveschool-api.herokuapp.com/api/deezer/search?q="
 const heroCover = document.getElementById("heroCover")
 const heroTitle = document.getElementById("heroTitle")
 const heroArtist = document.getElementById("heroArtist")
+const heroArtistLink=document.getElementById("heroArtistLink")
 const greetingGrid = document.getElementById("greetingGrid")
 const recommendedGrid = document.getElementById("recommendedGrid")
 const desktopNowPlayingCover = document.getElementById("desktopNowPlayingCover")
@@ -24,6 +25,7 @@ const getAlbum = async () => {
         const response = await fetch(url + "fedez")
         const data = await response.json()
         console.log(data)
+        console.log(data.data[0].artist.id)
 
         const firstTrack = data.data[18]
 
@@ -36,6 +38,8 @@ const getAlbum = async () => {
         heroCover.appendChild(img)
         heroTitle.textContent = firstTrack.album.title
         heroArtist.textContent = firstTrack.artist.name
+
+        heroArtistLink.href=`./artist.html?artistId=${firstTrack.artist.id}`
 
 
     } catch (error) {

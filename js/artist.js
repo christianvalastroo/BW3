@@ -1,9 +1,10 @@
 
 //recupero params//
 
-/* console.log(window.location.search)
+console.log(window.location.search)
 const params= new URLSearchParams(window.location.search)
-const artistId= params.get("") */
+const artistId= params.get("artistId")
+console.log(artistId)
 
 //--------------//
 
@@ -28,7 +29,7 @@ const favTracksImg=document.querySelector(".favTracksImgCont img")
 const getDataArtist=async()=>{
 
     try{
-        const rawData=await fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/119`)
+        const rawData=await fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}`)
         const data= await rawData.json()
         return data
 
@@ -46,7 +47,7 @@ const getDataArtist=async()=>{
 const getDataTracks=async()=>{
 
     try{
-        const rawData=await fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/119/top?limit=50`)
+        const rawData=await fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=50`)
         const data= await rawData.json()
         return data
 
