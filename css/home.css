@@ -11,6 +11,7 @@
     --shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
 }
 
+/* Reset base */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -140,7 +141,7 @@ svg {
     display: none;
 }
 
-.content-section + .content-section {
+.content-section+.content-section {
     margin-top: 24px;
 }
 
@@ -168,6 +169,7 @@ svg {
     letter-spacing: 0.12em;
 }
 
+/* Griglia Buonasera */
 .greeting-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -184,7 +186,16 @@ svg {
 }
 
 .greeting-card__cover {
+    width: 62px;
+    height: 62px;
     flex-shrink: 0;
+}
+
+.greeting-card__cover img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
 }
 
 .greeting-card__title {
@@ -220,14 +231,11 @@ svg {
     height: 88px;
 }
 
-.greeting-card__cover .art {
-    width: 62px;
-    height: 62px;
-}
-
-.recommended-card__cover .art {
+.recommended-card__cover img {
     width: 100%;
     height: 100%;
+    display: block;
+    object-fit: cover;
 }
 
 .recommended-card__body {
@@ -380,11 +388,8 @@ svg {
     color: var(--text);
 }
 
+/* Layout desktop */
 @media (min-width: 992px) {
-    body {
-        overflow: hidden;
-    }
-
     .app-shell {
         display: grid;
         grid-template-columns: 280px minmax(0, 1fr) 192px;
@@ -674,7 +679,7 @@ svg {
         color: var(--muted);
     }
 
-    .content-section + .content-section {
+    .content-section+.content-section {
         margin-top: 32px;
     }
 
@@ -698,7 +703,7 @@ svg {
         line-height: 1.28;
     }
 
-    .greeting-card__cover .art {
+    .greeting-card__cover {
         width: 78px;
         height: 78px;
     }
@@ -988,18 +993,18 @@ svg {
     width: 100%;
 }
 
-.artistSection{
+.artistSection {
     width: 100%;
 }
 
-.artistSection .playFollow{
-    
+.artistSection .playFollow {
+
     width: 100%;
     display: flex;
     align-items: center;
 }
 
-.artistSection .playFollow .playFollowButtons{
+.artistSection .playFollow .playFollowButtons {
     padding-top: 1rem;
     padding-bottom: 1rem;
     display: flex;
@@ -1007,35 +1012,30 @@ svg {
     align-items: center;
 }
 
-.artistSection .playFollow .playFollowButtons .playButton{
+.artistSection .playFollow .playFollowButtons .playButton {
     height: 40px;
     width: 40px;
     background-color: greenyellow;
     border-radius: 50%;
     border: none;
-    
+
 }
 
-.artistSection .playFollow .playFollowButtons .playButton i{
-    
-}
-
-.artistSection .playFollow .playFollowButtons .followButton{
+.artistSection .playFollow .playFollowButtons .followButton {
     color: white;
     background-color: transparent;
     border-radius: 0.2rem;
     border: 1px solid white;
     height: 30px;
-    padding-right: .7rem;
-    padding-left: .7rem;
+    
 }
 
-.artistSection .playFollow .playFollowButtons .playFollowMenuButton{
+.artistSection .playFollow .playFollowButtons .playFollowMenuButton {
     height: 30px;
     color: white;
     background-color: transparent;
     border: none;
-    
+
 }
 
 .artistSection{
@@ -1045,16 +1045,12 @@ svg {
     min-height: 0;
 }
 
-.artistSection .tracks{
+.artistSection .tracks {
     width: 100%;
-    justify-content: space-between;
-    overflow: auto;
-    flex: 1;
-    overflow-y: auto;
-    min-height: 0   
+    justify-content: space-between;    
 }
 
-.artistSection .tracks .popItemCont{
+.artistSection .tracks .popItemCont {
     width: 100%;
     display: flex;
     padding: .4rem;
@@ -1062,24 +1058,24 @@ svg {
     gap: 10px;
 }
 
-.artistSection .tracks .popItemCont .popItemImgCont{
+.artistSection .tracks .popItemCont .popItemImgCont {
     width: 30px;
     height: 30px;
     overflow: hidden;
 }
 
-.artistSection .tracks .popItemCont .popItemImgCont img{
+.artistSection .tracks .popItemCont .popItemImgCont img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.artistSection .tracks .popItemCont .popItemTrackCont{
+.artistSection .tracks .popItemCont .popItemTrackCont {
     flex-grow: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+
 }
 
 .artistSection .tracks .popItemCont .popItemTrackCont .trackTitleCont{
@@ -1087,70 +1083,67 @@ svg {
     
 }
 
-.artistSection .tracks .popItemCont .popItemTrackCont .numOfViews{
+.artistSection .tracks .popItemCont .popItemTrackCont .numOfViews {
     color: gray;
-    
+
 }
 
-.artistSection .tracks .popItemCont .popItemTrackCont .trackDuration{
+.artistSection .tracks .popItemCont .popItemTrackCont .trackDuration {
     color: gray;
-    
+
 }
 
-.artistSection .tracks .popItemCont .onlySPItemMenu{
+.artistSection .tracks .popItemCont .onlySPItemMenu {
     display: flex;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
 }
 
-.artistSection .favTracksCont{
-    
-}
 
-.artistSection .favTracksCont .favTracksItem{
+.artistSection .favTracksCont .favTracksItem {
     display: flex;
     align-items: center;
-    gap: 1rem;   
+    gap: 1rem;
     min-width: 331px;
 }
 
-.artistSection .favTracksCont .favTracksItem .favTracksImgCont{
+.artistSection .favTracksCont .favTracksItem .favTracksImgCont {
     height: 50px;
     width: 50px;
     overflow: hidden;
-    border-radius: 50%;   
+    border-radius: 50%;
 }
 
-.artistSection .favTracksCont .favTracksItem .favTracksImgCont img{
+.artistSection .favTracksCont .favTracksItem .favTracksImgCont img {
     height: 100%;
     width: 100%;
-    object-fit: cover;   
+    object-fit: cover;
 }
 
 
-.artistSection .favTracksCont .favTracksItem .favTracksInfoCont{
+.artistSection .favTracksCont .favTracksItem .favTracksInfoCont {
     display: flex;
     flex-direction: column;
-    justify-content: center;    
+    justify-content: center;
 }
 
-.artistSection .favTracksCont .favTracksItem .favTracksInfoCont .favTracksInfoNum{
+.artistSection .favTracksCont .favTracksItem .favTracksInfoCont .favTracksInfoNum {
     font-weight: 500;
     margin: 0;
-       
+
 }
 
-.artistSection .favTracksCont .favTracksItem .favTracksInfoCont .favTracksInfoArtist{
-       color: gray;
+.artistSection .favTracksCont .favTracksItem .favTracksInfoCont .favTracksInfoArtist {
+    color: gray;
 }
 
-.artistSection footer{
+.artistSection footer {
     height: 500px;
     width: 100%;
-    border-top: 1px solid gray ;
+    border-top: 1px solid gray;
 }
 
-.activitiesBar{
+.activitiesBar {
     background-color: rgb(53, 53, 53)
 }
 
