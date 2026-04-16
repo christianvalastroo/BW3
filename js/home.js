@@ -1,10 +1,10 @@
 const url = "https://striveschool-api.herokuapp.com/api/deezer/search?q="
 
-// Elementi della home che riempio con la API
+// Riferimenti DOM aggiornati dinamicamente dalla home
 const heroCover = document.getElementById("heroCover")
 const heroTitle = document.getElementById("heroTitle")
 const heroArtist = document.getElementById("heroArtist")
-const heroArtistLink=document.getElementById("heroArtistLink")
+const heroArtistLink = document.getElementById("heroArtistLink")
 const greetingGrid = document.getElementById("greetingGrid")
 const recommendedGrid = document.getElementById("recommendedGrid")
 const desktopNowPlayingCover = document.getElementById("desktopNowPlayingCover")
@@ -21,7 +21,7 @@ const recommendedSpinner = document.querySelector("#recommendedSpinner")
 
 
 
-// Album in evidenza dell'hero
+// Hero principale con album e link all'artista
 const getAlbum = async () => {
     heroTitle.textContent = "Caricamento album..."
     heroArtist.textContent = "Attendi un momento"
@@ -44,7 +44,7 @@ const getAlbum = async () => {
         heroTitle.textContent = firstTrack.album.title
         heroArtist.textContent = firstTrack.artist.name
 
-        heroArtistLink.href=`./artist.html?artistId=${firstTrack.artist.id}`
+        heroArtistLink.href = `./artist.html?artistId=${firstTrack.artist.id}`
 
 
     } catch (error) {
@@ -56,13 +56,14 @@ const getAlbum = async () => {
 
 const queries = ["fedez", "salmo", "blanco", "mahmood", "maneskin", "madame"]
 
-// Card miste della sezione Buonasera
+// Sezione Buonasera: crea una card per ogni query
 const getCards = async () => {
     greetingGrid.innerHTML = ""
 
     greetingSpinner.classList.remove("d-none")
 
     try {
+        await new Promise(resolve => setTimeout(resolve, 1000))
         queries.forEach(async (query) => {
 
             const response = await fetch(url + query)
@@ -99,9 +100,51 @@ const getCards = async () => {
     } catch (error) {
         console.log(error)
 
-    }finally {
+    } finally {
         greetingSpinner.classList.add("d-none")
     }
 }
+
+// Query usate per riempire la sezione consigliata
+const recommendedQueries = ["italia", "internet", "pop","jazz", "triste", "trend", "rock", "hiphop", "queen", "metallica"]
+
+// Sezione consigliata: cover, titolo album e artista
+const getRecommended = async () => {
+    recommendedSpinner.classList.remove("d-none")
+    recommendedGrid.innerHTML = ""
+
+    try {
+        await new Promise(resolve => setTimeout(resolve, 1000))
+        recommendedQueries.forEach(async (query) => {
+            const response = await fetch(url + query)
+            const data = await response.json()
+
+            const track = data.data[0]
+
+            const card = recommendedCardTemplate.content.cloneNode(true)
+
+            const cover = card.querySelector(".recommended-card__cover")
+            const title = card.querySelector(".recommended-card__title")
+            const subtitle = card.querySelector(".recommended-card__subtitle")
+
+            const img = document.createElement("img")
+            img.src = track.album.cover_medium
+            img.alt = track.album.title
+
+            cover.appendChild(img)
+            title.textContent = track.album.title
+            subtitle.textContent = track.artist.name
+
+            recommendedGrid.appendChild(card)
+        })
+    } catch (error) {
+        console.log(error)
+    } finally {
+        recommendedSpinner.classList.add("d-none")
+    }
+}
+
+// Avvio iniziale della home
 getCards()
 getAlbum()
+getRecommended()

@@ -1,3 +1,4 @@
+/* Variabili condivise della pagina */
 :root {
     --bg: #000;
     --panel: #121212;
@@ -71,6 +72,7 @@ svg {
     display: none;
 }
 
+/* Layout mobile-first del contenuto centrale */
 .main-content {
     min-height: 100vh;
     padding: 40px 16px 180px;
@@ -209,6 +211,7 @@ svg {
     line-height: 1.2;
 }
 
+/* Griglia verticale della sezione consigliata su mobile */
 .recommended-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -388,7 +391,7 @@ svg {
     color: var(--text);
 }
 
-/* Layout desktop */
+/* Adattamenti desktop: sidebar, hero e player fisso */
 @media (min-width: 992px) {
     .app-shell {
         display: grid;
