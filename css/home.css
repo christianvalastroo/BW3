@@ -982,18 +982,18 @@ svg {
 
 /* css artist page */
 
-.artistMain{
+.artistMain {
     height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-#heroBannerArtist{
+#heroBannerArtist {
     background-size: cover;
     height: 40%;
 }
 
-.artistNameCont{
+.artistNameCont {
     width: 100%;
 }
 
@@ -1006,6 +1006,7 @@ svg {
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .artistSection .playFollow .playFollowButtons {
@@ -1016,7 +1017,10 @@ svg {
     align-items: center;
 }
 
-.artistSection .playFollow .playFollowButtons .playButton {
+.artistSection .playFollow
+
+/* .playFollowButtons */
+.playButton {
     height: 40px;
     width: 40px;
     background-color: greenyellow;
@@ -1043,24 +1047,41 @@ svg {
 
 }
 
-.artistSection{
+.artistSection .playFollow .playCasualMobileButtons {
+    display: none;
+    align-items: center;
+    gap: 1rem;
+
+}
+
+.artistSection .playFollow .playCasualMobileButtons .bi-shuffle {
+    color: #0d7d4e;
+    font-size: 2rem;
+}
+
+.artistSection .playFollow .playFollowButtons .playFollowMenuButton .bi-three-dots-vertical {
+    display: none;
+}
+
+
+.artistSection {
     flex: 1;
     display: flex;
     flex-direction: column;
     min-height: 0;
 }
 
-.artistSection .fanNumMobile{
+.artistSection .fanNumMobile {
     display: none;
 }
 
-.artistSection .tracks{
+.artistSection .tracks {
     width: 100%;
     justify-content: space-between;
     overflow: auto;
     flex: 1;
     overflow-y: auto;
-    min-height: 0   
+    min-height: 0
 }
 
 .artistSection .tracks .popItemCont {
@@ -1091,9 +1112,9 @@ svg {
 
 }
 
-.artistSection .tracks .popItemCont .popItemTrackCont .trackTitleCont{
+.artistSection .tracks .popItemCont .popItemTrackCont .trackTitleCont {
     width: 150px;
-    
+
 }
 
 .artistSection .tracks .popItemCont .popItemTrackCont .numOfViews {
@@ -1150,6 +1171,11 @@ svg {
     color: gray;
 }
 
+.art--tile {
+    width: 40px;
+    height: 40px;
+}
+
 .artistSection footer {
     height: 500px;
     width: 100%;
@@ -1162,21 +1188,21 @@ svg {
 
 /* media queries */
 
-@media (width<992px){
+@media (width<992px) {
 
-    .pageTitle{
+    .pageTitle {
         display: none;
     }
 
-    .pHeaderEnd{
+    .pHeaderEnd {
         display: none;
     }
 
-    .topArrows{
+    .topArrows {
         display: block;
     }
 
-    .leftButton{
+    .leftButton {
         background-color: black;
         height: 30px;
         width: 30px;
@@ -1187,15 +1213,15 @@ svg {
         align-items: center;
     }
 
-    .rightButton{
+    .rightButton {
         display: none;
     }
 
-    .contentFiltersArtist{
+    .contentFiltersArtist {
         display: none;
     }
 
-    #heroBannerArtist{
+    #heroBannerArtist {
         display: block;
         height: 60%;
         display: flex;
@@ -1203,24 +1229,60 @@ svg {
         padding: 12px;
     }
 
-    .artistNameCont p{
+    .artistNameCont p {
         display: none;
     }
 
-    .artistNameCont h1{
+    .artistNameCont h1 {
         margin-bottom: 0;
     }
 
-    .artistSection .fanNumMobile{
+    .artistSection .fanNumMobile {
         display: block;
         margin-bottom: 0;
         margin-top: 3px;
 
     }
 
-    .popularTracksCont{
+    .artistSection .playFollow .playFollowButtons .playButton {
+        display: none;
+    }
+
+    .bi-three-dots {
+        display: none;
+    }
+
+    .artistSection .playFollow .playFollowButtons .playFollowMenuButton .bi-three-dots-vertical {
+        display: block;
+    }
+
+    .artistSection .playFollow .playCasualMobileButtons {
+        display: flex;
+    }
+
+    .popularTracksCont {
         order: 1;
     }
+
+    /* artist mobile player */
+
+    .artistMobilePlayer {
+        position: fixed;
+        left: 12px;
+        right: 12px;
+        bottom: 74px;
+        z-index: 30;
+        padding: 12px 14px;
+        border-radius: 14px;
+        background: rgba(36, 36, 36, 0.95);
+        box-shadow: var(--shadow);
+
+    }
+
+    .artistMobilePlayer .mobile-mini-player__content{
+
+    }
+
 
 }
 
