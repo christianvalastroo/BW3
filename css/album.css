@@ -1,0 +1,124 @@
+.album {
+    margin-bottom: 20px;
+}
+
+.imgAlbum {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.infoAuthor{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.divImgAuthor{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.divImgAuthor img {
+    width: 100%;
+    height: 100%;
+}
+
+.recordTypeFirst{
+    display: none;
+}
+
+.nameAlbum{
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.infoAuthor{
+    margin-bottom: 10px;
+}
+.yearReleaseAlbum {
+    display: flex;
+    gap: 5px;
+}
+
+.yearAlbum::before{
+    display: inline;
+    content: "•";
+    margin-right: 5px;
+}
+
+.durationAlbum::before{
+    display: inline;
+    content: "•";
+    margin-right: 5px;
+}
+
+.durationAlbum{
+    display: none;
+}
+
+.actionButtons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.actionButtons svg {
+    width: 30px;
+    height: 30px;
+}
+
+.otherBtns, .playShuffleBtn {
+    display: flex;
+    gap: 30px;
+}
+
+.otherInfoBtn svg:last-child{
+    display: none;
+}
+
+.playBtn{
+    background-color: #00D856;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tableSongs {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.infoSong th{
+    display: none;
+}
+
+.infoSong .streamsSong {
+    display: none;
+}
+.trSongs{
+    display: none;
+}
+
+.durationSong{
+    display: none;
+}
+
+tr,td {
+    padding: 5px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.tdBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
