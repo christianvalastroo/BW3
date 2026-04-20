@@ -137,6 +137,8 @@ tr,td {
     align-items: center;
 }
 
+.divSongArtist p:last-child{}
+
 @media (min-width: 992px) {
 
     .trSongs{

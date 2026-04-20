@@ -1,6 +1,8 @@
 const imgAlbum = document.querySelector(".imgAlbum")
 const infoAlbum = document.querySelector('.infoAlbum')
 const tracklistAlbum = document.querySelector('.tracklistAlbum')
+const params = new URLSearchParams (window.location.search)
+const albumid = params.get("albumid")
 
 const getAlbum = async () => {
     try {
