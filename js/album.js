@@ -119,8 +119,8 @@ const generateListAlbum = (song, counter) => {
     const tr = document.createElement('tr')
     tr.classList.add("infoSong")
 
-    const th = document.createElement('th')
-    th.innerText=counter
+    const numberTd = document.createElement('td')
+    numberTd.innerText=counter
 
     const td1 = document.createElement('td')
     td1.classList.add("divSongArtist")
@@ -151,7 +151,7 @@ const generateListAlbum = (song, counter) => {
 
     tdBtn.appendChild(dotsBtn)
 
-    tr.append(th, td1, stream, durationSong, tdBtn)
+    tr.append(numberTd, td1, stream, durationSong, tdBtn)
     tracklistAlbum.appendChild(tr)
 }
 
