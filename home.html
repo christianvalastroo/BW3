@@ -152,18 +152,22 @@
 
             <!-- Hero riempito dal JS -->
             <section class="hero-banner" id="heroBanner" aria-label="Album in evidenza">
-                <div class="art art--square hero-cover art--song" id="heroCover"></div>
+                <a href="#" id="heroCoverLink" class="hero-album-link" aria-disabled="true">
+                    <div class="art art--square hero-cover art--song" id="heroCover"></div>
+                </a>
 
                 <div class="hero-copy">
                     <div class="hero-copy__eyebrow">ALBUM</div>
-                    <h1 id="heroTitle"></h1>
+                    <a href="#" id="heroTitleLink" class="hero-album-link" aria-disabled="true">
+                        <h1 id="heroTitle"></h1>
+                    </a>
 
                     <a id="heroArtistLink" aria-disabled="true">
                         <p class="hero-copy__artists" id="heroArtist"></p>
                     </a>
 
                     <div class="hero-actions">
-                        <button type="button" class="pill-button pill-button--primary">Play</button>
+                        <button type="button" id="heroPlayButton" class="pill-button pill-button--primary" disabled>Play</button>
                         <button type="button" class="pill-button pill-button--ghost">Salva</button>
                         <button type="button" class="more-button" aria-label="Altre opzioni">
                             <i data-lucide="more-horizontal"></i>
@@ -354,9 +358,9 @@
                 <h3 class="recommended-card__title"></h3>
                 <p class="recommended-card__subtitle"></p>
             </div>
-            <button type="button" class="recommended-card__play" aria-label="Riproduci album">
+            <span class="recommended-card__play" aria-hidden="true">
                 <span aria-hidden="true">▶</span>
-            </button>
+            </span>
         </article>
     </template>
 

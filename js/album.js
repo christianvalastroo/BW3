@@ -1,12 +1,12 @@
 const imgAlbum = document.querySelector(".imgAlbum")
 const infoAlbum = document.querySelector('.infoAlbum')
 const tracklistAlbum = document.querySelector('.tracklistAlbum')
-const params = new URLSearchParams (window.location.search)
+const params = new URLSearchParams(window.location.search)
 const albumid = params.get("albumid")
 
 const getAlbum = async () => {
     try {
-        const response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/album/75621062`)
+        const response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/album/${albumid}`)
         return await response.json()
     } catch (error) {
         console.error(error)
@@ -41,10 +41,10 @@ const counterSongs = (album) => {
 
 const secConverter = (seconds) => {
     let result
-    if((seconds/60)>=60){
-        const hours = Math.floor(seconds/3600)
+    if ((seconds / 60) >= 60) {
+        const hours = Math.floor(seconds / 3600)
         const minutes = Math.floor((seconds % 3600) / 60)
-        if (hours===1) {
+        if (hours === 1) {
             result = `${hours} ora ${minutes} min`
         } else {
             result = `${hours} ore ${minutes} min`
@@ -61,7 +61,7 @@ const generateInfoAlbum = (album) => {
     const recordTypeFirst = document.createElement("p")
     recordTypeFirst.innerText = 'ALBUM'
     recordTypeFirst.classList.add('recordTypeFirst')
-    
+
     const nameAlbum = document.createElement("h3")
     nameAlbum.innerText = album.title
     nameAlbum.classList.add("nameAlbum")
@@ -108,11 +108,11 @@ const generateInfoAlbum = (album) => {
 }
 
 const formatNumber = (num) => {
-  return Number(num).toLocaleString('it-IT').toString()
+    return Number(num).toLocaleString('it-IT').toString()
 }
 
 const minConverter = (time) => {
-    const min = Math.floor(time/60)
+    const min = Math.floor(time / 60)
     const sec = time % 60
 
     return `${min}:${sec}`
@@ -122,7 +122,7 @@ const generateListAlbum = (song, counter) => {
     tr.classList.add("infoSong")
 
     const numberTd = document.createElement('td')
-    numberTd.innerText=counter
+    numberTd.innerText = counter
 
     const td1 = document.createElement('td')
     td1.classList.add("divSongArtist")
@@ -134,12 +134,12 @@ const generateListAlbum = (song, counter) => {
     author.innerText = song.artist.name
 
     td1.append(titleSong, author)
-    
+
     const stream = document.createElement('td')
     stream.innerText = formatNumber(song.rank)
     stream.classList.add("streamsSong")
 
-    const durationSong  = document.createElement('td')
+    const durationSong = document.createElement('td')
     durationSong.innerText = minConverter(song.duration)
     durationSong.classList.add('durationSong')
 
@@ -167,4 +167,3 @@ getAlbum().then(res => {
         counter++
     });
 })
-
