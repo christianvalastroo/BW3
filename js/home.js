@@ -25,6 +25,8 @@ const recommendedSpinner = document.querySelector("#recommendedSpinner")
 const getAlbum = async () => {
     heroTitle.textContent = "Caricamento album..."
     heroArtist.textContent = "Attendi un momento"
+    heroArtistLink.removeAttribute("href")
+    heroArtistLink.setAttribute("aria-disabled", "true")
 
     try {
         const response = await fetch(url + "Fedez")
@@ -45,12 +47,15 @@ const getAlbum = async () => {
         heroArtist.textContent = firstTrack.artist.name
 
         heroArtistLink.href = `./artist.html?artistId=${firstTrack.artist.id}`
+        heroArtistLink.removeAttribute("aria-disabled")
 
 
     } catch (error) {
         console.log(error)
         heroTitle.textContent = "Errore di caricamento"
         heroArtist.textContent = "Album non disponibile"
+        heroArtistLink.removeAttribute("href")
+        heroArtistLink.setAttribute("aria-disabled", "true")
     }
 }
 

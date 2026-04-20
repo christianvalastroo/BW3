@@ -128,9 +128,25 @@ const populateFavTracks=(imgUrl)=>{
 
 window.onload=()=>{
 
+    if(!artistId){
+        heroTitle.textContent="Artista non trovato"
+        fanNumP.textContent=""
+        fanNumMobileP.textContent=""
+        trackList.innerHTML="<li>Nessun artista selezionato</li>"
+        favTracksImg.removeAttribute("src")
+        favTracksImg.alt="Artista non trovato"
+        return
+    }
+
     getDataArtist()
     .then(res=>{
         console.log(res)
+        if(!res?.id){
+            heroTitle.textContent="Artista non trovato"
+            fanNumP.textContent=""
+            fanNumMobileP.textContent=""
+            return
+        }
         populateHero(res.name,res.nb_fan,res.picture_big)
         populateFavTracks(res.picture_small)
     })
@@ -138,7 +154,10 @@ window.onload=()=>{
     getDataTracks()
     .then(res=>{
         console.log(res)
-        //md5_image
+        if(!res?.data){
+            trackList.innerHTML="<li>Brani non disponibili</li>"
+            return
+        }
         populatePopTracks(res.data)
     })
 

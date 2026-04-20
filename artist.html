@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify Home Clone</title>
+    <title>Artista</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
@@ -118,7 +118,7 @@
                         </button>
                     </div>
 
-                    <h1 class="page-title pageTitle">Buonasera</h1>
+                    <h1 class="page-title pageTitle">Artista</h1>
                 </div>
 
                 <div class="page-header__end pHeaderEnd">
@@ -147,11 +147,11 @@
                 <button type="button" class="filter-pill">Podcast e show</button>
             </div>
 
-            <section class="hero-banner" id="heroBannerArtist" aria-label="Album in evidenza">
+            <section class="hero-banner" id="heroBannerArtist" aria-labelledby="artistHeroTitle">
 
                 <div class="artistNameCont">
-                    <p><i class="bi bi-patch-check-fill"></i> Artista Verificato</p>
-                    <h1 class="heroTitle"></h1>
+                    <p><i class="bi bi-patch-check-fill"></i> Artista verificato</p>
+                    <h1 class="heroTitle" id="artistHeroTitle"></h1>
                     <p class="fanNum"></p>
                 </div>
 
@@ -164,17 +164,17 @@
             </section>
 
 
-            <div class="artistSection container-fluid">
+            <section class="artistSection container-fluid">
 
                 <p class="fanNumMobile"></p>
 
                 <div class="playFollow">
                     <div class="playFollowButtons">
-                        <button class="playButton">
+                        <button type="button" class="playButton" aria-label="Riproduci artista">
                             <i class="bi bi-play-fill"></i>
                         </button>
-                        <button class="followButton">Following</button>
-                        <button class="playFollowMenuButton">
+                        <button type="button" class="followButton">Following</button>
+                        <button type="button" class="playFollowMenuButton" aria-label="Altre opzioni">
                             <i class="bi bi-three-dots"></i>
                             <i class="bi bi-three-dots-vertical"></i>
                         </button>
@@ -184,7 +184,7 @@
                         <div>
                             <i class="bi bi-shuffle"></i>
                         </div>
-                        <button class="playButton">
+                        <button type="button" class="playButton" aria-label="Riproduci artista">
                             <i class="bi bi-play-fill"></i>
                         </button>
                     </div>
@@ -194,15 +194,12 @@
                 <div class="tracks row">
                     <div class="popularTracksCont col-12 col-xxl-5">
                         <h3>Popolari</h3>
-                        <ol class="trackList">
-
-                            <div id="artistpopularTracksSpinner" class="d-flex justify-content-center py-4 d-none">
-                                <div class="spinner-border text-success" role="status">
-                                    <span class="visually-hidden">Loading...</span>
-                                </div>
+                        <div id="artistpopularTracksSpinner" class="d-flex justify-content-center py-4 d-none">
+                            <div class="spinner-border text-success" role="status">
+                                <span class="visually-hidden">Loading...</span>
                             </div>
-
-                        </ol>
+                        </div>
+                        <ol class="trackList"></ol>
                     </div>
                     <div class="favTracksCont col-12 col-xxl-5">
                         <h3>Brani che ti piacciono</h3>
@@ -215,16 +212,16 @@
                                     </div>
                                 </div>
 
-                                <img src="#" alt="">
+                                <img alt="Immagine artista">
                             </div>
                             <div class="favTracksInfoCont">
-                                <p class="favTracksInfoNum">Hai messo mi piace a 11 brani</p>
-                                <p class="favTracksInfoArtist"> di Yellowcard</p>
+                                <p class="favTracksInfoNum">Brani che ti piacciono</p>
+                                <p class="favTracksInfoArtist">di questo artista</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
 
 
@@ -283,7 +280,7 @@
                 <span id="desktopNowPlayingArtist">Attendi un momento</span>
             </div>
             <div class="player-track__actions">
-                <i data-lucide="heart" style="cursor: pointer;"></i>
+                <i data-lucide="heart"></i>
             </div>
         </div>
 
@@ -316,16 +313,16 @@
         </div>
 
         <div class="player-tools">
-            <i data-lucide="mic-vocal" style="cursor: pointer;"></i>
-            <i data-lucide="list-music" style="cursor: pointer;"></i>
-            <i data-lucide="monitor-speaker" style="cursor: pointer;"></i>
+            <i data-lucide="mic-vocal"></i>
+            <i data-lucide="list-music"></i>
+            <i data-lucide="monitor-speaker"></i>
             <div class="volume-group">
                 <i data-lucide="volume-2"></i>
                 <div class="progress-bar progress-bar--volume" aria-hidden="true">
                     <span class="progress-bar__fill"></span>
                 </div>
             </div>
-            <i data-lucide="maximize-2" style="cursor: pointer;"></i>
+            <i data-lucide="maximize-2"></i>
         </div>
     </div>
 
@@ -350,7 +347,7 @@
 
     <!-- Navigazione mobile -->
     <nav class="mobile-nav" aria-label="Navigazione mobile">
-        <a href="#" class="mobile-nav__item mobile-nav__item--active">
+        <a href="home.html" class="mobile-nav__item">
             <i data-lucide="house"></i>
             <span>Home</span>
         </a>
@@ -363,29 +360,6 @@
             <span>La tua libreria</span>
         </a>
     </nav>
-
-    <!-- Template card Buonasera -->
-    <template id="greetingCardTemplate">
-        <article class="greeting-card">
-            <div class="greeting-card__cover"></div>
-            <h3 class="greeting-card__title"></h3>
-        </article>
-    </template>
-
-    <!-- Template card Recommended -->
-    <template id="recommendedCardTemplate">
-        <article class="recommended-card">
-            <div class="recommended-card__cover"></div>
-            <div class="recommended-card__body">
-                <p class="recommended-card__kicker">Album</p>
-                <h3 class="recommended-card__title"></h3>
-                <p class="recommended-card__subtitle"></p>
-            </div>
-            <button type="button" class="recommended-card__play" aria-label="Riproduci album">
-                <span aria-hidden="true">▶</span>
-            </button>
-        </article>
-    </template>
 
     <!-- Inizializzazione icone -->
     <script src="https://unpkg.com/lucide@latest"></script>

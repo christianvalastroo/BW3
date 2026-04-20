@@ -56,11 +56,6 @@ svg {
     border: 0;
 }
 
-.section-message {
-    color: var(--muted);
-    font-size: 0.95rem;
-}
-
 .app-shell {
     min-height: 100vh;
 }
@@ -291,16 +286,6 @@ svg {
 
 .art--song {
     background: linear-gradient(135deg, #8b6989, #4b414e);
-}
-
-.art--tile {
-    width: 62px;
-    height: 62px;
-}
-
-.art--desktop-tile {
-    width: 78px;
-    height: 78px;
 }
 
 .art--square {
@@ -640,18 +625,13 @@ svg {
         font-weight: 900;
     }
 
-    .hero-copy__artists,
-    .hero-copy__description {
+    .hero-copy__artists {
         margin-top: 14px;
         font-weight: 700;
     }
 
     .hero-copy__artists {
         font-size: 1.08rem;
-    }
-
-    .hero-copy__description {
-        font-size: 1.05rem;
     }
 
     .hero-actions {
@@ -871,6 +851,11 @@ svg {
         gap: 10px;
     }
 
+    .player-track__actions i,
+    .player-tools>i {
+        cursor: pointer;
+    }
+
     .player-center {
         display: flex;
         flex-direction: column;
@@ -1017,9 +1002,6 @@ svg {
     align-items: center;
 }
 
-.artistSection .playFollow
-
-/* .playFollowButtons */
 .playButton {
     height: 40px;
     width: 40px;
@@ -1176,16 +1158,6 @@ svg {
     height: 40px;
 }
 
-.artistSection footer {
-    height: 500px;
-    width: 100%;
-    border-top: 1px solid gray;
-}
-
-.activitiesBar {
-    background-color: rgb(53, 53, 53)
-}
-
 /* media queries */
 
 @media (width<992px) {
@@ -1222,7 +1194,6 @@ svg {
     }
 
     #heroBannerArtist {
-        display: block;
         height: 60%;
         display: flex;
         align-items: end;
@@ -1263,26 +1234,6 @@ svg {
     .popularTracksCont {
         order: 1;
     }
-
-    /* artist mobile player */
-
-    .artistMobilePlayer {
-        position: fixed;
-        left: 12px;
-        right: 12px;
-        bottom: 74px;
-        z-index: 30;
-        padding: 12px 14px;
-        border-radius: 14px;
-        background: rgba(36, 36, 36, 0.95);
-        box-shadow: var(--shadow);
-
-    }
-
-    .artistMobilePlayer .mobile-mini-player__content{
-
-    }
-
 
 }
 
