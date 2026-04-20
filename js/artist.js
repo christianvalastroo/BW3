@@ -1,9 +1,10 @@
 
 //recupero params//
 
-/* console.log(window.location.search)
+console.log(window.location.search)
 const params= new URLSearchParams(window.location.search)
-const artistId= params.get("") */
+const artistId= params.get("artistId")
+console.log(artistId)
 
 //--------------//
 
@@ -14,59 +15,64 @@ const hero=document.getElementById("heroBannerArtist")
 
 const heroTitle=document.querySelector(".heroTitle")
 const fanNumP=document.querySelector(".fanNum")
+const fanNumMobileP=document.querySelector(".fanNumMobile")
 
 const trackList=document.querySelector(".trackList")
+
+const favTracksImg=document.querySelector(".favTracksImgCont img")
+
+const artistHeroSpinner=document.getElementById("artistHeroSpinner")
+const artistFavTracksSpinner=document.getElementById("artistFavTracksSpinner")
+const artistpopularTracksSpinner=document.getElementById("artistpopularTracksSpinner")
 
 //------------//
 
 
-//get di controllo artist//
+//get data artist//
 
 const getDataArtist=async()=>{
 
+    artistHeroSpinner.classList.remove("d-none")
+    artistFavTracksSpinner.classList.remove("d-none")
+
     try{
-        const rawData=await fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/119`)
+        const rawData=await fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}`)
         const data= await rawData.json()
         return data
 
     }catch(error){
         console.log(error)
+    }finally{
+        artistHeroSpinner.classList.add("d-none")
+        artistFavTracksSpinner.classList.add("d-none")
     }
 
 }
-
-getDataArtist()
-    .then(res=>{
-        console.log(res)
-        populateHero(res.name,res.nb_fan,res.picture_big)
-    })
 
 //----------------//
 
 
-//get di controllo tracks//
+//get data tracks//
 
 const getDataTracks=async()=>{
 
+    artistpopularTracksSpinner.classList.remove("d-none")
+
     try{
-        const rawData=await fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/119/top?limit=50`)
+        const rawData=await fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=50`)
         const data= await rawData.json()
         return data
 
     }catch(error){
         console.log(error)
+    }finally{
+        artistpopularTracksSpinner.classList.add("d-none")
     }
 
 }
 
-getDataTracks()
-    .then(res=>{
-        console.log(res)
-        //md5_image
-        populatePopTracks(res.data)
-    })
-
 //---------------//
+
 
 //populate functions//
 
@@ -74,13 +80,22 @@ const populateHero=(name,fans,image)=>{
     hero.style.backgroundImage=`url(${image})`
     heroTitle.innerHTML=name
     fanNumP.innerHTML=fans+" fans"
+    fanNumMobileP.innerHTML=fans+" fans"
 }
 
 const populatePopTracks=(tracksArray)=>{
 
     tracksArray.forEach(track=> {
+        
+        //renderizzazione della Track.duration//
 
-        //track.duration
+        let trackDuration=track.duration
+        let trackDurationString= String(trackDuration)
+        let trackDurationArray= trackDurationString.split("")
+        trackDurationArray.splice(1,0,":")
+        let renderedTrackDuration=trackDurationArray.join("")
+        
+        //-------------------------------------//
 
         trackList.innerHTML+=`<li>
                                     <div class="popItemCont">
@@ -92,7 +107,7 @@ const populatePopTracks=(tracksArray)=>{
                                                 <p class="trackTitle">${track.title_short}</p>
                                             </div>
                                             <p class="numOfViews">${track.rank}</p>
-                                            <p class="trackDuration">${track.duration}</p>
+                                            <p class="trackDuration">${renderedTrackDuration}</p>
                                         </div>
                                         <div class="onlySPItemMenu d-none">
                                             <i class="bi bi-three-dots-vertical"></i>
@@ -102,4 +117,31 @@ const populatePopTracks=(tracksArray)=>{
     });
 }
 
+const populateFavTracks=(imgUrl)=>{
+    favTracksImg.src=imgUrl
+}
+
 //-----------------//
+
+
+//window onload//
+
+window.onload=()=>{
+
+    getDataArtist()
+    .then(res=>{
+        console.log(res)
+        populateHero(res.name,res.nb_fan,res.picture_big)
+        populateFavTracks(res.picture_small)
+    })
+
+    getDataTracks()
+    .then(res=>{
+        console.log(res)
+        //md5_image
+        populatePopTracks(res.data)
+    })
+
+}
+
+//--------------//

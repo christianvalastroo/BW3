@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify Home Clone</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/home.css">
@@ -105,22 +106,22 @@
         </aside>
 
         <!-- Contenuto condiviso desktop e mobile -->
-        <main class="main-content">
+        <main class="main-content artistMain">
             <header class="page-header">
                 <div class="page-header__start">
-                    <div class="topbar-arrows" aria-label="Navigazione cronologia">
-                        <button type="button" class="icon-button" aria-label="Indietro">
+                    <div class="topbar-arrows topArrows" aria-label="Navigazione cronologia">
+                        <button type="button" class="icon-button leftButton" aria-label="Indietro">
                             <i data-lucide="chevron-left"></i>
                         </button>
-                        <button type="button" class="icon-button icon-button--muted" aria-label="Avanti">
+                        <button type="button" class="icon-button icon-button--muted rightButton" aria-label="Avanti">
                             <i data-lucide="chevron-right"></i>
                         </button>
                     </div>
 
-                    <h1 class="page-title">Buonasera</h1>
+                    <h1 class="page-title pageTitle">Buonasera</h1>
                 </div>
 
-                <div class="page-header__end">
+                <div class="page-header__end pHeaderEnd">
                     <div class="page-header__mobile-actions">
                         <button type="button" class="mobile-icon-button" aria-label="Notifiche">
                             <i data-lucide="bell"></i>
@@ -141,73 +142,89 @@
                 </div>
             </header>
 
-            <div class="content-filters">
+            <div class="content-filters contentFiltersArtist">
                 <button type="button" class="filter-pill filter-pill--active">Musica</button>
                 <button type="button" class="filter-pill">Podcast e show</button>
             </div>
 
             <section class="hero-banner" id="heroBannerArtist" aria-label="Album in evidenza">
-      
-                    <div class="artistNameCont">
-                        <p><i class="bi bi-patch-check-fill"></i> Artista Verificato</p>
-                        <h1 class="heroTitle"></h1>
-                        <p class="fanNum"></p>
+
+                <div class="artistNameCont">
+                    <p><i class="bi bi-patch-check-fill"></i> Artista Verificato</p>
+                    <h1 class="heroTitle"></h1>
+                    <p class="fanNum"></p>
+                </div>
+
+                <div id="artistHeroSpinner" class="d-flex justify-content-center py-4 d-none">
+                    <div class="spinner-border text-success" role="status">
+                        <span class="visually-hidden">Loading...</span>
                     </div>
-    
+                </div>
+
             </section>
-            
+
 
             <div class="artistSection container-fluid">
 
-                    <div class="playFollow">
-                        <div class="playFollowButtons">
-                            <button class="playButton">
-                                <i class="bi bi-play-fill"></i>
-                            </button>
-                            <button class="followButton">Following</button>
-                            <button class="playFollowMenuButton">
-                                <i class="bi bi-three-dots"></i>
-                            </button>
-                        </div>
+                <p class="fanNumMobile"></p>
+
+                <div class="playFollow">
+                    <div class="playFollowButtons">
+                        <button class="playButton">
+                            <i class="bi bi-play-fill"></i>
+                        </button>
+                        <button class="followButton">Following</button>
+                        <button class="playFollowMenuButton">
+                            <i class="bi bi-three-dots"></i>
+                            <i class="bi bi-three-dots-vertical"></i>
+                        </button>
                     </div>
 
-                    <div class="tracks row">
-                        <div class="popularTracksCont col-12 col-xl-5">
-                            <h3>Popolari</h3>
-                            <ol class="trackList">
-                                <!-- <li>
-                                    <div class="popItemCont">
-                                        <div class="popItemImgCont">
-                                            <img src="./assets/assets/img5.jpg" alt="">
-                                        </div>
-                                        <div class="popItemTrackCont">
-                                            <div class="trackTitleCont">
-                                                <p class="trackTitle">Ocean Avenue</p>
-                                            </div>
-                                            <p class="numOfViews">200.000.000</p>
-                                            <p class="trackDuration">3:16</p>
-                                        </div>
-                                        <div class="onlySPItemMenu d-none">
-                                            <i class="bi bi-three-dots-vertical"></i>
-                                        </div>
-                                    </div>
-                                </li> -->
-                            </ol>
+                    <div class="playCasualMobileButtons">
+                        <div>
+                            <i class="bi bi-shuffle"></i>
                         </div>
-                        <div class="favTracksCont col-12 col-xl-5">
-                            <h3>Brani che ti piacciono</h3>
-                            <div class="favTracksItem">
-                                <div class="favTracksImgCont">
-                                    <img src="./assets/assets/img5.jpg" alt="">
+                        <button class="playButton">
+                            <i class="bi bi-play-fill"></i>
+                        </button>
+                    </div>
+
+                </div>
+
+                <div class="tracks row">
+                    <div class="popularTracksCont col-12 col-xxl-5">
+                        <h3>Popolari</h3>
+                        <ol class="trackList">
+
+                            <div id="artistpopularTracksSpinner" class="d-flex justify-content-center py-4 d-none">
+                                <div class="spinner-border text-success" role="status">
+                                    <span class="visually-hidden">Loading...</span>
                                 </div>
-                                <div class="favTracksInfoCont">
-                                    <p class="favTracksInfoNum">Hai messo mi piace a 11 brani</p>
-                                    <p class="favTracksInfoArtist"> di Yellowcard</p>
+                            </div>
+
+                        </ol>
+                    </div>
+                    <div class="favTracksCont col-12 col-xxl-5">
+                        <h3>Brani che ti piacciono</h3>
+                        <div class="favTracksItem">
+                            <div class="favTracksImgCont">
+
+                                <div id="artistFavTracksSpinner" class="d-flex justify-content-center py-4 d-none">
+                                    <div class="spinner-border text-success" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
                                 </div>
+
+                                <img src="#" alt="">
+                            </div>
+                            <div class="favTracksInfoCont">
+                                <p class="favTracksInfoNum">Hai messo mi piace a 11 brani</p>
+                                <p class="favTracksInfoArtist"> di Yellowcard</p>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
 
 
@@ -313,7 +330,7 @@
     </div>
 
     <!-- Mini player mobile -->
-    <div class="mobile-mini-player" aria-label="Mini player mobile">
+    <div class="mobile-mini-player artistMobilePlayer" aria-label="Mini player mobile">
         <div class="mobile-mini-player__content">
             <div class="mobile-mini-player__left">
                 <div class="art art--tile art--song" id="mobileMiniPlayerCover"></div>
@@ -372,14 +389,15 @@
 
     <!-- Inizializzazione icone -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="js/home.js"></script>
     <script>
         if (window.lucide) {
             window.lucide.createIcons()
         }
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
     <script src="js/artist.js"></script>
 
 </body>

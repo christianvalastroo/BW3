@@ -1,3 +1,4 @@
+/* Variabili condivise della pagina */
 :root {
     --bg: #000;
     --panel: #121212;
@@ -71,6 +72,7 @@ svg {
     display: none;
 }
 
+/* Layout mobile-first del contenuto centrale */
 .main-content {
     min-height: 100vh;
     padding: 40px 16px 180px;
@@ -209,6 +211,7 @@ svg {
     line-height: 1.2;
 }
 
+/* Griglia verticale della sezione consigliata su mobile */
 .recommended-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -388,7 +391,7 @@ svg {
     color: var(--text);
 }
 
-/* Layout desktop */
+/* Adattamenti desktop: sidebar, hero e player fisso */
 @media (min-width: 992px) {
     .app-shell {
         display: grid;
@@ -979,11 +982,18 @@ svg {
 
 /* css artist page */
 
-#heroBannerArtist{
-    background-size: cover;
+.artistMain {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.artistNameCont{
+#heroBannerArtist {
+    background-size: cover;
+    height: 40%;
+}
+
+.artistNameCont {
     width: 100%;
 }
 
@@ -996,6 +1006,7 @@ svg {
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .artistSection .playFollow .playFollowButtons {
@@ -1006,7 +1017,10 @@ svg {
     align-items: center;
 }
 
-.artistSection .playFollow .playFollowButtons .playButton {
+.artistSection .playFollow
+
+/* .playFollowButtons */
+.playButton {
     height: 40px;
     width: 40px;
     background-color: greenyellow;
@@ -1021,7 +1035,8 @@ svg {
     border-radius: 0.2rem;
     border: 1px solid white;
     height: 30px;
-
+    padding-right: .7rem;
+    padding-left: .7rem;
 }
 
 .artistSection .playFollow .playFollowButtons .playFollowMenuButton {
@@ -1032,9 +1047,41 @@ svg {
 
 }
 
+.artistSection .playFollow .playCasualMobileButtons {
+    display: none;
+    align-items: center;
+    gap: 1rem;
+
+}
+
+.artistSection .playFollow .playCasualMobileButtons .bi-shuffle {
+    color: #0d7d4e;
+    font-size: 2rem;
+}
+
+.artistSection .playFollow .playFollowButtons .playFollowMenuButton .bi-three-dots-vertical {
+    display: none;
+}
+
+
+.artistSection {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.artistSection .fanNumMobile {
+    display: none;
+}
+
 .artistSection .tracks {
     width: 100%;
-    
+    justify-content: space-between;
+    overflow: auto;
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0
 }
 
 .artistSection .tracks .popItemCont {
@@ -1065,9 +1112,9 @@ svg {
 
 }
 
-.artistSection .tracks .popItemCont .popItemTrackCont .trackTitleCont{
+.artistSection .tracks .popItemCont .popItemTrackCont .trackTitleCont {
     width: 150px;
-    
+
 }
 
 .artistSection .tracks .popItemCont .popItemTrackCont .numOfViews {
@@ -1124,6 +1171,11 @@ svg {
     color: gray;
 }
 
+.art--tile {
+    width: 40px;
+    height: 40px;
+}
+
 .artistSection footer {
     height: 500px;
     width: 100%;
@@ -1136,5 +1188,102 @@ svg {
 
 /* media queries */
 
+@media (width<992px) {
+
+    .pageTitle {
+        display: none;
+    }
+
+    .pHeaderEnd {
+        display: none;
+    }
+
+    .topArrows {
+        display: block;
+    }
+
+    .leftButton {
+        background-color: black;
+        height: 30px;
+        width: 30px;
+        padding: 3px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .rightButton {
+        display: none;
+    }
+
+    .contentFiltersArtist {
+        display: none;
+    }
+
+    #heroBannerArtist {
+        display: block;
+        height: 60%;
+        display: flex;
+        align-items: end;
+        padding: 12px;
+    }
+
+    .artistNameCont p {
+        display: none;
+    }
+
+    .artistNameCont h1 {
+        margin-bottom: 0;
+    }
+
+    .artistSection .fanNumMobile {
+        display: block;
+        margin-bottom: 0;
+        margin-top: 3px;
+
+    }
+
+    .artistSection .playFollow .playFollowButtons .playButton {
+        display: none;
+    }
+
+    .bi-three-dots {
+        display: none;
+    }
+
+    .artistSection .playFollow .playFollowButtons .playFollowMenuButton .bi-three-dots-vertical {
+        display: block;
+    }
+
+    .artistSection .playFollow .playCasualMobileButtons {
+        display: flex;
+    }
+
+    .popularTracksCont {
+        order: 1;
+    }
+
+    /* artist mobile player */
+
+    .artistMobilePlayer {
+        position: fixed;
+        left: 12px;
+        right: 12px;
+        bottom: 74px;
+        z-index: 30;
+        padding: 12px 14px;
+        border-radius: 14px;
+        background: rgba(36, 36, 36, 0.95);
+        box-shadow: var(--shadow);
+
+    }
+
+    .artistMobilePlayer .mobile-mini-player__content{
+
+    }
+
+
+}
 
 /* --------------- */
