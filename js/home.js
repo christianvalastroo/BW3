@@ -4,7 +4,10 @@ const url = "https://striveschool-api.herokuapp.com/api/deezer/search?q="
 const heroCover = document.getElementById("heroCover")
 const heroTitle = document.getElementById("heroTitle")
 const heroArtist = document.getElementById("heroArtist")
+const heroCoverLink = document.getElementById("heroCoverLink")
+const heroTitleLink = document.getElementById("heroTitleLink")
 const heroArtistLink = document.getElementById("heroArtistLink")
+const heroPlayButton = document.getElementById("heroPlayButton")
 const greetingGrid = document.getElementById("greetingGrid")
 const recommendedGrid = document.getElementById("recommendedGrid")
 const desktopNowPlayingCover = document.getElementById("desktopNowPlayingCover")
@@ -19,12 +22,26 @@ const recommendedCardTemplate = document.getElementById("recommendedCardTemplate
 const greetingSpinner = document.querySelector("#greetingSpinner")
 const recommendedSpinner = document.querySelector("#recommendedSpinner")
 
+const getAlbumHref = (albumId) => `./album.html?albumid=${albumId}`
+let heroAlbumHref = ""
+
+heroPlayButton.addEventListener("click", () => {
+    if (!heroAlbumHref) return
+    window.location.href = heroAlbumHref
+})
+
 
 
 // Hero principale con album e link all'artista
 const getAlbum = async () => {
     heroTitle.textContent = "Caricamento album..."
     heroArtist.textContent = "Attendi un momento"
+    heroAlbumHref = ""
+    heroPlayButton.disabled = true
+    heroCoverLink.removeAttribute("href")
+    heroTitleLink.removeAttribute("href")
+    heroCoverLink.setAttribute("aria-disabled", "true")
+    heroTitleLink.setAttribute("aria-disabled", "true")
     heroArtistLink.removeAttribute("href")
     heroArtistLink.setAttribute("aria-disabled", "true")
 
@@ -46,6 +63,15 @@ const getAlbum = async () => {
         heroTitle.textContent = firstTrack.album.title
         heroArtist.textContent = firstTrack.artist.name
 
+        heroAlbumHref = getAlbumHref(firstTrack.album.id)
+        heroPlayButton.disabled = false
+        heroPlayButton.setAttribute("aria-label", `Apri l'album ${firstTrack.album.title}`)
+        heroCoverLink.href = heroAlbumHref
+        heroTitleLink.href = heroAlbumHref
+        heroCoverLink.setAttribute("aria-label", `Apri l'album ${firstTrack.album.title}`)
+        heroTitleLink.setAttribute("aria-label", `Apri l'album ${firstTrack.album.title}`)
+        heroCoverLink.removeAttribute("aria-disabled")
+        heroTitleLink.removeAttribute("aria-disabled")
         heroArtistLink.href = `./artist.html?artistId=${firstTrack.artist.id}`
         heroArtistLink.removeAttribute("aria-disabled")
 
@@ -54,6 +80,12 @@ const getAlbum = async () => {
         console.log(error)
         heroTitle.textContent = "Errore di caricamento"
         heroArtist.textContent = "Album non disponibile"
+        heroAlbumHref = ""
+        heroPlayButton.disabled = true
+        heroCoverLink.removeAttribute("href")
+        heroTitleLink.removeAttribute("href")
+        heroCoverLink.setAttribute("aria-disabled", "true")
+        heroTitleLink.setAttribute("aria-disabled", "true")
         heroArtistLink.removeAttribute("href")
         heroArtistLink.setAttribute("aria-disabled", "true")
     }
@@ -69,12 +101,17 @@ const getCards = async () => {
 
     try {
         await new Promise(resolve => setTimeout(resolve, 1000))
-        queries.forEach(async (query) => {
+        for (const query of queries) {
 
             const response = await fetch(url + query)
             const data = await response.json()
 
             const firstTrack = data.data[0]
+
+            const link = document.createElement("a")
+            link.href = getAlbumHref(firstTrack.album.id)
+            link.classList.add("album-card-link")
+            link.setAttribute("aria-label", `Apri l'album ${firstTrack.album.title}`)
 
             const card = greetingCardTemplate.content.cloneNode(true)
 
@@ -97,10 +134,11 @@ const getCards = async () => {
 
             title.textContent = firstTrack.album.title
 
-            greetingGrid.appendChild(card)
+            link.appendChild(card)
+            greetingGrid.appendChild(link)
 
 
-        })
+        }
 
     } catch (error) {
         console.log(error)
@@ -120,11 +158,16 @@ const getRecommended = async () => {
 
     try {
         await new Promise(resolve => setTimeout(resolve, 1000))
-        recommendedQueries.forEach(async (query) => {
+        for (const query of recommendedQueries) {
             const response = await fetch(url + query)
             const data = await response.json()
 
             const track = data.data[0]
+
+            const link = document.createElement("a")
+            link.href = getAlbumHref(track.album.id)
+            link.classList.add("album-card-link")
+            link.setAttribute("aria-label", `Apri l'album ${track.album.title}`)
 
             const card = recommendedCardTemplate.content.cloneNode(true)
 
@@ -140,8 +183,9 @@ const getRecommended = async () => {
             title.textContent = track.album.title
             subtitle.textContent = track.artist.name
 
-            recommendedGrid.appendChild(card)
-        })
+            link.appendChild(card)
+            recommendedGrid.appendChild(link)
+        }
     } catch (error) {
         console.log(error)
     } finally {
