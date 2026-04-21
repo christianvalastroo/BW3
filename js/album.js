@@ -80,7 +80,8 @@ const generateInfoAlbum = (album) => {
 
     divImgAuthor.appendChild(imgAuthor)
 
-    const nameAuthor = document.createElement('p')
+    const nameAuthor = document.createElement('a')
+    nameAuthor.setAttribute('href', '#')
     nameAuthor.innerText = album.artist.name
     nameAuthor.classList.add('nameAuthor')
 
