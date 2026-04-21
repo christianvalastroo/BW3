@@ -4,6 +4,7 @@ const tracklistAlbum = document.querySelector('.tracklistAlbum')
 const params = new URLSearchParams(window.location.search)
 const albumid = params.get("albumid")
 
+const getArtistHref = (artistId) => `./artist.html?artistId=${artistId}`
 const getAlbum = async () => {
     try {
         const response = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/album/${albumid}`)
@@ -81,7 +82,7 @@ const generateInfoAlbum = (album) => {
     divImgAuthor.appendChild(imgAuthor)
 
     const nameAuthor = document.createElement('a')
-    nameAuthor.setAttribute('href', '#')
+    nameAuthor.setAttribute('href', `${getArtistHref(album.artist.id)}`)
     nameAuthor.innerText = album.artist.name
     nameAuthor.classList.add('nameAuthor')
 
@@ -131,7 +132,8 @@ const generateListAlbum = (song, counter) => {
     const titleSong = document.createElement('p')
     titleSong.innerText = song.title
 
-    const author = document.createElement('p')
+    const author = document.createElement('a')
+    author.setAttribute('href', `${getArtistHref(song.artist.id)}`)
     author.innerText = song.artist.name
 
     td1.append(titleSong, author)

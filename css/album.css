@@ -30,9 +30,22 @@
     display: none;
 }
 
+button {
+    transition: all 0.2s linear;
+}
+
+button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
 .nameAlbum{
     font-size: 1.5em;
     margin-bottom: 10px;
+}
+
+.nameAuthor:hover {
+    text-decoration: underline;
 }
 
 .infoAuthor{
@@ -43,10 +56,19 @@
     gap: 5px;
 }
 
+.recordType {
+    color: #B3B3B3;
+}
+
 .yearAlbum::before{
     display: inline;
     content: "•";
     margin-right: 5px;
+    color: #B3B3B3;
+}
+
+.yearAlbum {
+    color: #B3B3B3;
 }
 
 .durationAlbum::before{
@@ -68,6 +90,7 @@
 .actionButtons svg {
     width: 30px;
     height: 30px;
+    color: #B3B3B3;
 }
 
 .otherBtns, .playShuffleBtn {
@@ -136,15 +159,26 @@ tr,td {
 }
 
 .tdBtn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: table-cell;
+    text-align: end;
 }
 
 .trSongs tr th:nth-of-type(3) {
     display: none;
 }
-.divSongArtist p:last-child:hover {
+
+.divSongArtist{
+    padding-left: 0;
+}
+.divSongArtist a{
+    color: #B3B3B3;
+}
+
+.actionSong {
+    color: #B3B3B3;
+}
+
+.divSongArtist a:hover {
     text-decoration: underline;
 }
 
@@ -153,16 +187,24 @@ tr,td {
     .trSongs{
         display: table-header-group;
     }
-    .infoSong th{
-        display: inline-block;
+
+    .trSongs tr th:last-child{
+        display: table-cell;
+        text-align: end;
     }
 
+    .trSongs tr th:first-child{
+        display: table-cell;
+        width: 50px;
+    }
     .durationSong{
         display: table-cell;
+        text-align: end;
+        color: #B3B3B3;      
     }
 
     .infoSong td:first-child{
-        display: inline-block;
+        display: table-cell;
         padding: 12px 16px;
         text-align: left;
     }
@@ -178,6 +220,9 @@ tr,td {
         display: none;
     }
 
+    .divSongArtist{
+        padding-left: 12px;
+    }
     .detailsAlbum {
         display: flex;
         align-items: center;
@@ -208,6 +253,7 @@ tr,td {
         word-break: break-word;
         font-size: 2.1em;
     }
+
 
     .actionButtons {
         justify-content: start;
@@ -241,6 +287,7 @@ tr,td {
 
     .infoSong .streamsSong {
         display: table-cell;
+        color: #B3B3B3;
     }
 
 }
